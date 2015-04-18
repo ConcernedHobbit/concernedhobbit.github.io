@@ -1,0 +1,24 @@
+body {
+	font-family: Verdana;
+	font-size: 12px;
+}
+
+.credit {
+	color: #B3B3B3;
+}
+
+.credit a:link,a:visited {
+    text-decoration: none;
+	color: #B3B3B3;
+}
+
+.credit a:hover,a:active {
+    text-decoration: underline;
+	color: #7D7D7D;
+}
+
+#container {
+	margin: auto;
+	width: 70%;
+	text-align: center;
+}
