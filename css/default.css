@@ -1,24 +1,50 @@
 body {
-	font-family: Verdana;
-	font-size: 12px;
-}
-
-.credit {
-	color: #B3B3B3;
-}
-
-.credit a:link,a:visited {
-    text-decoration: none;
-	color: #B3B3B3;
-}
-
-.credit a:hover,a:active {
-    text-decoration: underline;
-	color: #7D7D7D;
-}
-
-#container {
-	margin: auto;
-	width: 70%;
+	/* Fallback fonts. Just because. */
+	font-family: Candara, Arial, monospace; 
+	
 	text-align: center;
+}
+
+header {
+	width: 25em;
+	height: 4em;
+	
+	margin: 3.5em auto 1em auto;
+}
+
+footer {
+	width: 10em;
+	height: 1.5em;
+	margin: auto auto 1em auto;
+}
+
+
+/* Yay links! */
+a {
+	color: #2A5DB0;
+	text-decoration: none;
+}
+
+
+#title {
+	margin-bottom: 1px;
+}
+
+#subtitle {
+	margin-top: 1px;
+}
+
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.material-icons.custom {
+	font-size: 0.75em;
 }
