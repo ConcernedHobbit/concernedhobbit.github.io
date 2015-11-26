@@ -3,6 +3,7 @@
 	I should really rewrite this soon. Oh well. Future me can do that later.
 	
 	From future me: Fuck you, past me. Oh well, future me can fix this later.
+	From future me: I should really learn from my mistakes. Oh well, future me can fix this soon.
  */
 
 var date = new Date();
@@ -63,10 +64,10 @@ var testTrigger = [['1337'], 'css/h4x0r.css', 'h3110, m473.'];
 
 var triggers = [darkTriggers, testTrigger];
 
-/* Dark/night mode */
-if(window.location.hash) { /* too lazy to figure out if this works like /#derp. if this message is still here, it works! (testing it live) */
+/* The thing that makes the alternative stylesheets work */
+if(window.location.hash) { /* For some reason, this doesn't work on GitHub. MORE CONSOLE.LOG()! */
 	var hash = window.location.hash.substring(1);
-	
+	console.log("Found hash '%s', checking it against triggers.", hash);
 	for (var i = 0; i < triggers.length; i++) {
 		if ($.inArray(hash, triggers[i][0]) != -1) {
 			console.log('Using stylesheet from %s', triggers[i][1]);
