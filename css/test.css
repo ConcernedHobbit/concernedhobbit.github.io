@@ -1,8 +1,9 @@
 body {
-	/* Fallback fonts. Just because. */
-	font-family: Candara, Arial, monospace; 
+	font-family: monospace; 
 	
 	text-align: center;
+	color: #00FF00;
+	background-color: #2f2f2f;
 }
 
 header {
@@ -19,7 +20,7 @@ footer {
 
 /* Yay links! */
 a {
-	color: #2A5DB0;
+	color: #00FF00;
 	text-decoration: none;
 }
 
