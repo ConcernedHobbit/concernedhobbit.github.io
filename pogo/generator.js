@@ -45,7 +45,7 @@ var generateSharableURI = function() {
         leagues.push([league, cp]);
     }
 
-    let str = "https://wa.me/?text=";
+    let str = "https://api.whatsapp.com/send?text=";
 
     for (let league of leagues) {
         let name = league[0];
