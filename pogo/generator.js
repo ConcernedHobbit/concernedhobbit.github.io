@@ -64,3 +64,17 @@ for (let button of generateButtons) {
         generate(evt.path[2]);
     });
 }
+
+const minTenCPTriggers = ['0', '10', 'low', 'min'];
+
+if(window.location.hash) {
+	var hash = window.location.hash.substring(1);
+	
+    if (minTenCPTriggers.indexOf(hash) > -1) {
+        let minimums = document.getElementsByClassName('minimum');
+        
+        for (let min of minimums) {
+            min.value = 10;
+        }
+    }
+}
