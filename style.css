@@ -1,0 +1,115 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #2B2D42;
+  color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  margin: 1em;
+  padding: 3rem 12rem;
+  width: fit-content;
+
+  background-color: #8D99AE;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    padding: 3rem;
+  }
+}
+
+main > div {
+  margin-bottom: 2em;
+}
+
+main > div:last-child {
+  margin-bottom: 0;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+h1, #name .fa-solid {
+  line-height: 1.2em;
+}
+
+#name {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#socials {
+  display: flex;
+  gap: 1em;
+}
+
+#socials > a {
+  color: black;
+  text-decoration: none;
+}
