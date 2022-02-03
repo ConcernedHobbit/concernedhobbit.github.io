@@ -48,9 +48,6 @@ body {
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #2B2D42;
   color: black;
@@ -61,38 +58,69 @@ body {
 }
 
 main {
-  margin: 1em;
-  padding: 3rem 12rem;
-  width: fit-content;
+  padding: 2em; 
 
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: .75fr 1fr; 
+  grid-template-rows: 1fr .25fr; 
+  grid-template-areas: 
+    "Profile Bio"
+    "Socials Bio";
+  
   background-color: #8D99AE;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 25px 50px -5px;
+}
+
+#profile {
+  grid-area: Profile;
+  border: 1px solid black;
+  filter: grayscale();
+}
+
+#name {
+  font-family: 'Fjalla One', sans-serif;
+  margin-bottom: 2em;
+}
+
+#bio {
+  grid-area: Bio;
+}
+
+#socials {
+  grid-area: Socials;
+  align-self: start;
+  margin-top: 1em;
+  width: 128px;
+
+  display: flex;
+  justify-content: space-between;
+  
 }
 
 @media only screen and (max-width: 700px) {
   main {
-    padding: 3rem;
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: .75fr 1fr .33fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "Profile Profile"
+      "Bio Bio"
+      "Socials Socials";
   }
-}
 
-main > div {
-  margin-bottom: 2em;
-}
-
-main > div:last-child {
-  margin-bottom: 0;
+  #socials {
+    align-self: end;
+  }
 }
 
 p {
   font-size: 1.2em;
 }
 
-h1, #name .fa-solid {
+h1 {
   line-height: 1.2em;
-}
-
-#name {
-  font-family: 'Fjalla One', sans-serif;
 }
 
 a {
@@ -104,12 +132,11 @@ a:hover {
   text-decoration: none;
 }
 
-#socials {
-  display: flex;
-  gap: 1em;
-}
-
 #socials > a {
   color: black;
   text-decoration: none;
+}
+
+.gray {
+  color: #444;
 }
