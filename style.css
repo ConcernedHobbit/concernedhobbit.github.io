@@ -115,14 +115,6 @@ main {
   }
 }
 
-p {
-  font-size: 1.2em;
-}
-
-h1 {
-  line-height: 1.2em;
-}
-
 a {
   color: black;
   text-decoration: underline;
@@ -130,6 +122,11 @@ a {
 
 a:hover {
   text-decoration: none;
+}
+
+a:focus {
+  outline: 2px solid black;
+  outline-offset: 2px;
 }
 
 #socials > a {
