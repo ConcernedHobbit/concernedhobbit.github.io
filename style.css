@@ -26,17 +26,22 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  min-height: 100svh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -47,93 +52,220 @@ body {
   }
 }
 
-body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #2B2D42;
-  color: black;
+:root {
+  --background: white;
+  --text: black;
+  --normal-brightness: 1;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #011123;
+    --text: #c2c2c2;
+    --normal-brightness: 0.7;
+  }
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html {
+  background-color: var(--background);
+  color: var(--text);
 }
 
 main {
-  padding: 2em; 
-
-  display: grid; 
-  grid-auto-columns: 1fr; 
-  grid-template-columns: .75fr 1fr; 
-  grid-template-rows: 1fr .25fr; 
-  grid-template-areas: 
-    "Profile Bio"
-    "Socials Bio";
-  
-  background-color: #8D99AE;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 25px 50px -5px;
+  position: relative;
+  width: calc(800px - 2 * 2rem);
+  display: flex;
+  gap: 3rem;
+}
+main::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  background-image: radial-gradient(#131bff7f, white);
+  background-position: 0px 100px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transform: translate(0%, 15%) rotateZ(-15deg);
+  border-radius: 50%;
+  filter: blur(20px);
+}
+@media (prefers-color-scheme: dark) {
+  main::before {
+    content: none;
+  }
 }
 
-#profile {
-  grid-area: Profile;
-  border: 1px solid black;
-  filter: grayscale();
+#profile-container {
+  aspect-ratio: 3/2;
+  height: 480px;
+  border-radius: 4pt;
+  overflow: hidden;
+  transition: all 50ms ease-in-out;
+  position: relative;
 }
+#profile-picture {
+  animation: bring-front 0.5s ease-in forwards;
+  animation-delay: 250ms;
 
-#name {
-  font-family: 'Fjalla One', sans-serif;
-  margin-bottom: 2em;
+  filter: brightness(calc(var(--normal-brightness) - 0.1));
+
+  transition: all 250ms ease-in-out;
 }
-
-#bio {
-  grid-area: Bio;
-}
-
-#socials {
-  grid-area: Socials;
-  align-self: start;
-  margin-top: 1em;
-  width: 128px;
+#profile-container::before {
+  content: "";
+  width: 100%;
+  transition: opacity 250ms;
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(
+    210deg,
+    rgba(0, 0, 0, 0) 10%,
+    #0076b58c,
+    #093a72cf
+  );
+  z-index: 2;
+  opacity: 0;
 
   display: flex;
-  justify-content: space-between;
-  
+  align-items: end;
+  justify-content: center;
+  padding-bottom: 1rem;
+  color: white;
+}
+@media (prefers-color-scheme: dark) {
+  #profile-container::before {
+    background-image: linear-gradient(
+      210deg,
+      rgba(0, 0, 0, 0) 10%,
+      #04476c8c,
+      #07284dcf
+    );
+  }
+}
+@media (hover: hover) {
+  #profile-container:hover::before,
+  #profile-container:focus::before {
+    opacity: 1;
+  }
+}
+#profile-container:focus-visible::before {
+  content: "Connect with me";
+  opacity: 1;
+}
+#personal-info {
+  margin-top: 1rem;
+}
+@keyframes bring-front {
+  100% {
+    filter: brightness(var(--normal-brightness));
+    scale: 1.05;
+  }
 }
 
-@media only screen and (max-width: 700px) {
-  main {
-    grid-auto-columns: 1fr; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: .75fr 1fr .33fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "Profile Profile"
-      "Bio Bio"
-      "Socials Socials";
-  }
+#linkedin-logo {
+  position: absolute;
+  z-index: 3;
+  bottom: 1rem;
+  left: 1rem;
+}
 
-  #socials {
-    align-self: end;
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  width: max-content;
+}
+h1::before,
+h1::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  border: 2px solid #260bc4;
+}
+@media (prefers-color-scheme: dark) {
+  h1::before,
+  h1::after {
+    border-color: #5776db;
+  }
+}
+h1::before {
+  top: 0.5rem;
+  right: -1.5rem;
+  transform: rotateZ(65deg);
+}
+h1::after {
+  right: -1rem;
+  transform: rotateZ(30deg);
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+}
+.fancy {
+  background-image: radial-gradient(#1f3c7e, #260bc4, #474eb1, #6e59e8);
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  animation: fancy-scroll 6s linear infinite;
+}
+@media (prefers-color-scheme: dark) {
+  .fancy {
+    background-image: radial-gradient(#65beee, #3b89b4, #3959c2, #6396cf);
+  }
+}
+@keyframes fancy-scroll {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 250px;
   }
 }
 
 a {
-  color: black;
-  text-decoration: underline;
+  color: inherit;
+  text-underline-offset: 6px;
+  transition: all 100ms ease-in-out;
+
+  outline: none;
+}
+a:hover,
+a:focus-visible {
+  color: #1c72bd;
+  text-underline-offset: 4px;
 }
 
-a:hover {
-  text-decoration: none;
+@media only screen and (max-width: 800px) {
+  body {
+    align-items: baseline;
+    padding: 2rem;
+  }
+
+  main {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    gap: 4rem;
+  }
+  main::before {
+    transform: none;
+    height: 80svh;
+  }
+
+  #profile-container {
+    width: min(100%, 455px);
+    height: unset;
+    aspect-ratio: 1/1;
+    max-height: 455px;
+  }
+  #profile-picture {
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
-a:focus {
-  outline: 2px solid black;
-  outline-offset: 2px;
-}
-
-#socials > a {
-  color: black;
-  text-decoration: none;
-}
-
-.gray {
-  color: #444;
+@media (prefers-color-scheme: dark) {
 }
