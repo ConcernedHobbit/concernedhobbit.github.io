@@ -206,6 +206,7 @@ p {
 .fancy {
   background-image: radial-gradient(#1f3c7e, #260bc4, #474eb1, #6e59e8);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   font-weight: 600;
   animation: fancy-scroll 6s linear infinite;
