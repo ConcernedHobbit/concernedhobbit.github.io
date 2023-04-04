@@ -53,16 +53,9 @@ body {
 }
 
 :root {
-  --background: white;
-  --text: black;
-  --normal-brightness: 1;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #011123;
-    --text: #c2c2c2;
-    --normal-brightness: 0.7;
-  }
+  --background: #011123;
+  --text: #c2c2c2;
+  --normal-brightness: 0.7;
 }
 
 html {
@@ -71,31 +64,10 @@ html {
 }
 
 main {
-  position: relative;
   width: calc(800px - 2 * 2rem);
   display: flex;
   gap: 3rem;
 }
-main::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  position: absolute;
-  background-image: radial-gradient(#131bff7f, white);
-  background-position: 0px 100px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  transform: translate(0%, 15%) rotateZ(-15deg);
-  border-radius: 50%;
-  filter: blur(20px);
-}
-@media (prefers-color-scheme: dark) {
-  main::before {
-    content: none;
-  }
-}
-
 #profile-container {
   aspect-ratio: 3/2;
   height: 480px;
@@ -121,8 +93,8 @@ main::before {
   background-image: linear-gradient(
     210deg,
     rgba(0, 0, 0, 0) 10%,
-    #0076b58c,
-    #093a72cf
+    #04476c8c,
+    #07284dcf
   );
   z-index: 2;
   opacity: 0;
@@ -132,16 +104,6 @@ main::before {
   justify-content: center;
   padding-bottom: 1rem;
   color: white;
-}
-@media (prefers-color-scheme: dark) {
-  #profile-container::before {
-    background-image: linear-gradient(
-      210deg,
-      rgba(0, 0, 0, 0) 10%,
-      #04476c8c,
-      #07284dcf
-    );
-  }
 }
 @media (hover: hover) {
   #profile-container:hover::before,
@@ -181,13 +143,7 @@ h1::after {
   content: "";
   position: absolute;
   height: 20px;
-  border: 2px solid #260bc4;
-}
-@media (prefers-color-scheme: dark) {
-  h1::before,
-  h1::after {
-    border-color: #5776db;
-  }
+  border: 2px solid #5776db;
 }
 h1::before {
   top: 0.5rem;
@@ -204,17 +160,12 @@ p {
   line-height: 2.25rem;
 }
 .fancy {
-  background-image: radial-gradient(#1f3c7e, #260bc4, #474eb1, #6e59e8);
+  background-image: radial-gradient(#65beee, #3b89b4, #3959c2, #6396cf);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   font-weight: 600;
   animation: fancy-scroll 6s linear infinite;
-}
-@media (prefers-color-scheme: dark) {
-  .fancy {
-    background-image: radial-gradient(#65beee, #3b89b4, #3959c2, #6396cf);
-  }
 }
 @keyframes fancy-scroll {
   0% {
@@ -266,7 +217,4 @@ a:focus-visible {
     width: 100%;
     object-fit: cover;
   }
-}
-
-@media (prefers-color-scheme: dark) {
 }
